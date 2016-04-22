@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<launch>
+<arg name="input_topic" default="/kinect2_1/depth_highres/points" />
+<arg name="machine" default="localhost" />
+<arg name="name" default="1" />
+
+<machine name="localhost" address="localhost" />
+<node ns="getpc_$(arg name)" name="getpc" type="getpc_srv" pkg="getpc" machine="$(arg machine)" output="screen" >
+    <param name="input_topic" value="$(arg input_topic)"/>
+</node>
+
+</launch>

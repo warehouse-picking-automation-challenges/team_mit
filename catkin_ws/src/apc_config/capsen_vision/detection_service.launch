@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+
+<launch>
+  <arg name="datadir" default="$(env APCDATA_BASE)/capsen_vision" />
+  <arg name="objects_folder" default="$(arg datadir)/models" />
+  <arg name="paramsdir" default="$(find capsen_vision)/params" />
+
+  <!-- <include file="$(find freenect_launch)/launch/freenect.launch">
+    <arg name="depth_registration" value="true" />
+  </include> -->
+
+  <node pkg="capsen_vision" name="detection_service" type="detection_service" respawn="true" output="screen">
+    <param name="objects_folder" value="$(arg objects_folder)" />
+    <param name="scope_params_file" value="$(arg paramsdir)/scope_params.txt" />
+    <!-- <remap from="cloud" to="/camera/depth_registered/points"/> -->
+  </node>
+
+</launch>

@@ -1,0 +1,68 @@
+Total posetype correctness:  0.642857142857 (72/112)
+
+Each object posetype correctness:
+champion_copper_plus_spark_plug_[flat] , 0.333333333333
+cheezit_big_original_[flat] , 1.0
+cheezit_big_original_[intermediate] , 0.75
+cheezit_big_original_[upright] , 1.0
+crayola_64_ct_[flat] , 1.0
+crayola_64_ct_[intermediate] , 0.25
+crayola_64_ct_[upright] , 1.0
+dr_browns_bottle_brush_[flat] , 0.0
+dr_browns_bottle_brush_[other] , 1.0
+elmers_washable_no_run_school_glue_[flat] , 1.0
+elmers_washable_no_run_school_glue_[upright] , 1.0
+expo_dry_erase_board_eraser_[flat] , 0.0
+expo_dry_erase_board_eraser_[intermediate] , 1.0
+feline_greenies_dental_treats_[flat] , 1.0
+feline_greenies_dental_treats_[upright] , 1.0
+first_years_take_and_toss_straw_cup_[flat] , 0.0
+genuine_joe_plastic_stir_sticks_[flat] , 0.0
+genuine_joe_plastic_stir_sticks_[intermediate] , 0.5
+genuine_joe_plastic_stir_sticks_[upright] , 1.0
+highland_6539_self_stick_notes_[flat] , 1.0
+kong_air_dog_squeakair_tennis_ball_[flat] , 0.666666666667
+kong_sitting_frog_dog_toy_[other] , 1.0
+laugh_out_loud_joke_book_[flat] , 0.142857142857
+laugh_out_loud_joke_book_[upright] , 0.5
+mark_twain_huckleberry_finn_[flat] , 0.4
+mark_twain_huckleberry_finn_[upright] , 1.0
+mead_index_cards_[flat] , 0.0
+mead_index_cards_[intermediate] , 0.714285714286
+mead_index_cards_[upright] , 0.875
+mommys_helper_outlet_plugs_[flat] , 0.5
+mommys_helper_outlet_plugs_[intermediate] , 1.0
+mommys_helper_outlet_plugs_[upright] , 0.0
+munchkin_white_hot_duck_bath_toy_[upright] , 1.0
+oreo_mega_stuf_[flat] , 0.666666666667
+paper_mate_12_count_mirado_black_warrior_[flat] , 0.5
+paper_mate_12_count_mirado_black_warrior_[intermediate] , 1.0
+safety_works_safety_glasses_[flat] , 0.0
+sharpie_accent_tank_style_highlighters_[flat] , 0.75
+stanley_66_052_[flat] , 0.5
+stanley_66_052_[intermediate] , 0.5
+
+Each object posetype confused count:
+champion_copper_plus_spark_plug_[flat]_[None] , 2 / 3.0
+cheezit_big_original_[intermediate]_[upright] , 1 / 4.0
+crayola_64_ct_[intermediate]_[upright] , 3 / 4.0
+dr_browns_bottle_brush_[flat]_[other] , 2 / 2.0
+expo_dry_erase_board_eraser_[flat]_[intermediate] , 3 / 3.0
+first_years_take_and_toss_straw_cup_[flat]_[upright] , 2 / 2.0
+genuine_joe_plastic_stir_sticks_[flat]_[upright] , 1 / 1.0
+genuine_joe_plastic_stir_sticks_[intermediate]_[upright] , 1 / 2.0
+kong_air_dog_squeakair_tennis_ball_[flat]_[other] , 1 / 3.0
+laugh_out_loud_joke_book_[flat]_[intermediate] , 6 / 7.0
+laugh_out_loud_joke_book_[upright]_[intermediate] , 1 / 2.0
+mark_twain_huckleberry_finn_[flat]_[None] , 3 / 5.0
+mead_index_cards_[flat]_[intermediate] , 1 / 1.0
+mead_index_cards_[intermediate]_[upright] , 2 / 7.0
+mead_index_cards_[upright]_[None] , 1 / 8.0
+mommys_helper_outlet_plugs_[flat]_[intermediate] , 1 / 2.0
+mommys_helper_outlet_plugs_[upright]_[None] , 1 / 1.0
+oreo_mega_stuf_[flat]_[intermediate] , 1 / 3.0
+paper_mate_12_count_mirado_black_warrior_[flat]_[intermediate] , 2 / 4.0
+safety_works_safety_glasses_[flat]_[upright] , 2 / 2.0
+sharpie_accent_tank_style_highlighters_[flat]_[intermediate] , 1 / 4.0
+stanley_66_052_[flat]_[None] , 1 / 2.0
+stanley_66_052_[intermediate]_[upright] , 1 / 2.0

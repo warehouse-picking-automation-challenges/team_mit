@@ -1,0 +1,29 @@
+--------- Migrate Backup -----------
+------------------------------------
+Date: Wed May 20 10:28:22 2015
+Path: G:\software\abb-rapid\CN04-63151_BACKUP_2015-05-15
+------------------------------------
+Migrate: .\system.xml
+Backup:  .\system.xml.bak
+
+Migrate: BACKINFO\version.xml
+Backup:  BACKINFO\version.xml.bak
+
+Migrate: SYSPAR\SIO.cfg
+Backup:  SYSPAR\SIO.cfg.bak
+Domain:  SIO
+Original Version: 5.0
+
+Migrate: SYSPAR\EIO.cfg
+Backup:  SYSPAR\EIO.cfg.bak
+Domain:  EIO
+Original Version: 5.0
+
+------------------------------------
+Found Incompatibilities:
+Unit type: d352A not supported
+Unit type: d352B not supported
+DeviceNet_Lean not supported
+Old license keys not supported
+Unit type: d350B not supported
+------------------------------------

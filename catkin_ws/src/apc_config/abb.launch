@@ -1,0 +1,23 @@
+<launch>
+    <arg name="use_virtual" default="false" />
+    <rosparam command="load" file="$(find parameters)/systemParams.yaml"/>
+    
+    <rosparam unless="$(arg use_virtual)" command="load" file="$(find parameters)/mcubeAPCRobotParams.yaml"/>
+    <rosparam if="$(arg use_virtual)" command="load" file="$(find parameters)/mcubeAPCRobotParams-virtual.yaml"/>
+    
+    <rosparam command="load" file="$(find parameters)/matlabParams.yaml"/>
+    <rosparam command="load" file="$(find parameters)/handParams.yaml"/>
+    <rosparam command="load" file="$(find parameters)/loggerParams.yaml"/>
+    <rosparam command="load" file="$(find regraspComm)/config/regrasp_params.yaml"/>
+    <node pkg="robot_node" type="robot_node" name="robot_node1" output="screen" args="1">
+        <remap from="robot1_RosJointState" to="joint_states" />
+    </node>   <!--with robot number args="1"-->
+    
+    <!--<node pkg="robot_node" type="robot_node" name="robot_node2" output="screen" args="2"/>-->
+    <!--<node pkg="hand_node" type="hand_node" name="hand_node" output="screen"/>-->
+    <!--<node pkg="logger_node" type="logger_node" name="logger_node" output="screen"/>-->
+    <!--<node pkg="matlab_node" type="matlab_node" name="matlab_node" output="screen"/>-->
+    
+    <!--<node pkg="regraspNode" type="regrasp_node" name="regrasp_node" output="screen"/>-->
+
+</launch>

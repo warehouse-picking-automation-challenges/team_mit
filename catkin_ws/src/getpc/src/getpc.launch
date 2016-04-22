@@ -1,0 +1,8 @@
+<launch>
+<arg name="kinect_num" default="1" />
+
+<node ns="getpc_$(arg kinect_num)" name="getpc" type="getpc_srv.py" pkg="getpc" output="screen">
+    <param name="input_topic" value="/kinect2_$(arg kinect_num)/depth_lowres/points"/>
+</node>
+
+</launch>

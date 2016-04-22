@@ -1,0 +1,68 @@
+#
+# Generated backup file, do not edit.
+#
+# Originally at: /hd0a/temp/469dee81
+# 15-05-15  10:32:28
+#
+>>SYSTEM_ID:
+04-63151
+
+>>PRODUCTS_ID:
+RobotWare Version: 5.15.8017.08
+
+  RW Control module key
+  RobotWare OS and English
+  644-3 Spanish
+  645-2 German
+  709-x DeviceNet
+  709-1 Master/Slave Single
+  748-1 DeviceNet Lean
+  841-1 EtherNet/IP m/s
+  905-1 Ethernet multiport
+  608-1 World Zones
+  611-1 Path Recovery
+  885-1 SoftMove
+  613-1 Collision Detection
+  616-1 PC Interface
+  617-1 FlexPendant Interface
+  623-1 Multitasking
+  897-1 Robot Reference Interface
+  RW Drive module 1 key
+  ABB standard manipulator
+  IRB 1600
+  IRB 1600ID
+  1600ID-4/1.5
+  Drive System 09 120/140/1400/1600/260 Compact
+  1-Phase Power Supply
+  No additional drive
+
+>>ROBOT_TYPE:
+1600ID-4/1.5
+
+>>HOME:
+All public files and directories
+
+>>SYSPAR:
+SYS.cfg
+PROC.cfg
+EIO.cfg
+SIO.cfg
+MOC.cfg
+MMC.cfg
+
+
+>>TASK1: (T_ROB1,,)
+SYSMOD/user.sys @ user.sys
+PROGMOD/SERVER.mod @ server.mod
+PROGMOD/SPECIAL_COMMANDS.mod @ special_commands.mod
+
+>>TASK2: (LOGGER1,,)
+SYSMOD/user.sys @ user.sys
+PROGMOD/LOGGER.mod @ logger.mod
+
+>>TASK3: (INIT,,)
+SYSMOD/user.sys @ user.sys
+PROGMOD/INIT.mod @ init.mod
+
+
+>>EOF:

@@ -1,0 +1,15 @@
+<package>
+	<description brief="ROS messages for Personal Robotics project at Intel/CMU">
+
+        This package ideally includes all the custom ROS messages and services
+        used inside the Personal Robotics project at Intel/CMU. 
+
+  </description>
+  <author>herb-dev@lists.andrew.cmu.edu</author>
+  <license>LGPL</license>
+  <depend package="std_msgs"/>
+  <depend package="geometry_msgs"/>
+  <depend package="sensor_msgs"/>
+  <depend package="actionlib_msgs"/>
+</package>
+

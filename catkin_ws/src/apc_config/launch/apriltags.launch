@@ -1,0 +1,79 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="use_25h9" default="false" />
+  <arg name="use_16h5" default="false" />
+  <arg name="use_25h9_shelf" default="false" />
+  
+  <arg name="input_topic" default="/kinect2_1/rgb_rect/image" />
+  
+  <node if="$(arg use_16h5)" pkg="apriltags_ros" type="apriltag_detector_node" name="apriltag_detector" output="screen">
+    <remap from="image_rect" to="$(arg input_topic)"/>
+    <rosparam param="tag_codes">16h5</rosparam>
+    <rosparam param="tag_descriptions">
+        [{id: 0, size: 0.08434, frame_id: atag_frame0}]
+    </rosparam>
+  </node>
+  
+  <node if="$(arg use_25h9)" pkg="apriltags_ros" type="apriltag_detector_node" name="apriltag_detector" output="screen">
+    <remap from="image_rect" to="$(arg input_topic)"/>
+    <rosparam param="tag_codes">25h9</rosparam>
+    <rosparam param="tag_descriptions">
+        [{id: 0, size: 0.1923, frame_id: atag_frame0}]
+    </rosparam>
+  </node>
+  
+  <node if="$(arg use_25h9_shelf)" pkg="apriltags_ros" type="apriltag_detector_node" name="apriltag_detector" output="screen">
+    <remap from="image_rect" to="$(arg input_topic)"/>
+    <rosparam param="tag_codes">25h9</rosparam>
+    <rosparam param="tag_descriptions">
+        [{id: 4, size: 0.1923, frame_id: atag_frame1}, {id: 5, size: 0.1923, frame_id: atag_frame2}]
+    </rosparam>
+  </node>
+  
+</launch>
+
+<!--
+shelf tag  relative to shelf
+-->
+<!--
+tag right using kinect1
+At time 1431964012.805
+- Translation: [-0.251, 0.442, 1.644]
+- Rotation: in Quaternion [-0.699, -0.004, -0.000, 0.715]
+            in RPY [-1.547, -0.007, 0.006]
+-->
+<!--
+tag left using kinect1
+At time 1431964157.805
+- Translation: [0.249, 0.439, 1.648]
+- Rotation: in Quaternion [-0.698, 0.003, -0.003, 0.716]
+            in RPY [-1.547, -0.001, -0.008]
+-->
+
+<!--
+tag right using kinect2
+- Translation: [-0.255, 0.443, 1.643]
+- Rotation: in Quaternion [0.003, 0.701, 0.714, 0.002]
+            in RPY [1.552, -0.001, 3.134]
+-->
+
+<!--
+tag left using kinect2
+- Translation: [0.247, 0.438, 1.645]
+- Rotation: in Quaternion [0.007, 0.702, 0.713, 0.004]
+            in RPY [1.555, -0.005, 3.125]
+-->
+
+
+<!--
+        [
+      {id: 0, size: 0.1923, frame_id: atag_frame0},
+      {id: 1, size: 0.1923, frame_id: atag_frame1},
+      {id: 2, size: 0.1923, frame_id: atag_frame2},
+      {id: 3, size: 0.1923, frame_id: atag_frame3},
+      {id: 4, size: 0.08434, frame_id: atag_frame4}]
+      ,
+      {id: 1, size: 0.1923, frame_id: atag_frame1},
+      {id: 2, size: 0.1923, frame_id: atag_frame2},
+      {id: 3, size: 0.1923, frame_id: atag_frame3}
+-->

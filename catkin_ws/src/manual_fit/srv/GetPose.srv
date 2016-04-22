@@ -1,0 +1,4 @@
+string obj_id
+string bin_id
+---
+pr_msgs/ObjectPoseList pa

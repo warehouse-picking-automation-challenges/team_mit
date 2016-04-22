@@ -1,0 +1,212 @@
+group "test" {
+    cmd "1-virtual-random-planning-test" {
+        exec = "$APC_BASE/catkin_ws/src/apc_planning/test/virtual_random_planning_test.sh";
+        host = "localhost";
+    }
+}
+
+group "special" {
+    cmd "1-kinect_bridge" {
+        exec = "roslaunch apc_config kinect2_bridge.launch base_name:=kinect2_1 fps_limit:=1";
+        host = "localhost";
+    }
+    cmd "5-matlabapc-window" {
+        exec = "matlab  -r \"tic; cd([getenv('APC_BASE'), '/software']); addpath_pods; addpath_drake; toc; cd ../software/planning/ik_server/; \"";
+        host = "localhost";
+    }
+    cmd "4-manual_fit_urdf" {
+        exec = "rosrun manual_fit manual_fit_urdf.py";
+        host = "localhost";
+    }
+    cmd "2-realsense_standalone" {
+        exec = "roslaunch apc_config realsense_rviz.launch";
+        host = "localhost";
+    }
+    cmd "6-getpcs" {
+        exec = "roslaunch apc_config getpcs.launch";
+        host = "localhost";
+    }
+}
+
+group "calibration" {
+    cmd "3-apriltags-25h9-kinect2_2" {
+        exec = "roslaunch apc_config apriltags.launch use_25h9:=true input_topic:=/kinect2_2/rgb_rect/image";
+        host = "localhost";
+    }
+    cmd "4-capsen-rviz" {
+        exec = "rosrun rviz rviz -d $APC_BASE/catkin_ws/src/apc_config/rviz/object.rviz";
+        host = "localhost";
+    }
+    cmd "3-camera-calib-edit" {
+        exec = "geany $APC_BASE/catkin_ws/src/apc_planning/src/calibration/camera_calib.py";
+        host = "localhost";
+    }
+    cmd "5.2-edit-camera-fit" {
+        exec = "geany /home/mcube/apc/catkin_ws/src/manual_fit/manual_fit_obj_interactive.py";
+        host = "localhost";
+    }
+    cmd "4-capsen-transform" {
+        exec = "rosrun manual_fit find_model_transform.py munchkin_white_hot_duck_bath_toy";
+        host = "localhost";
+    }
+    cmd "1-transform-realsense-depth" {
+        exec = "rosrun tf static_transform_publisher 0 -0.048 0 -0.5 0.5 -0.5 0.5 realsense_link realsense_depth_optical_frame 100";
+        host = "localhost";
+    }
+    cmd "3-apriltags-25h9-realsense" {
+        exec = "roslaunch apc_config apriltags.launch use_25h9:=true input_topic:=/realsense/image/rgb_raw";
+        host = "localhost";
+    }
+    cmd "1-transform-calibhook" {
+        exec = "rosrun tf static_transform_publisher 0.06345 0 0.4 0 0 0 /link_6 /calib 100";
+        host = "localhost";
+    }
+    cmd "3-apriltags-25h9-kinect-shelf" {
+        exec = "roslaunch apc_config apriltags.launch use_25h9_shelf:=true input_topic:=/kinect2_1/rgb_rect/image";
+        host = "localhost";
+    }
+    cmd "2-apriltags" {
+        exec = "roslaunch apc_config apriltags.launch";
+        host = "localhost";
+    }
+    cmd "5.1-edit-camera-proc" {
+        exec = "geany /home/mcube/apc/catkin_ws/src/apc_config/camera_extrinsic_calib_data/camera_extrinsic_calib_data.py";
+        host = "localhost";
+    }
+    cmd "3-camera-calib" {
+        exec = "rosrun apc_planning camera_calib.py link6tag3";
+        host = "localhost";
+    }
+    cmd "3-apriltags-25h9-kinect2_1" {
+        exec = "roslaunch apc_config apriltags.launch use_25h9:=true input_topic:=/kinect2_1/rgb_rect/image";
+        host = "localhost";
+    }
+    cmd "3-apriltags-16h5" {
+        exec = "roslaunch apc_config apriltags.launch use_16h5:=true";
+        host = "localhost";
+    }
+}
+cmd "2-abb" {
+    exec = "roslaunch apc_config abb.launch";
+    host = "localhost";
+}
+cmd "7-checkjson" {
+    exec = "rosrun apc_planning heuristic_testjsononly.py -s -v --jfilename apc.json";
+    host = "localhost";
+}
+cmd "1-perception-handvision" {
+    exec = "roslaunch apc_config robot_perception.launch  use_realkinect:=false";
+    host = "localhost";
+}
+cmd "3-hand" {
+    exec = "roslaunch apc_config wsg_50_tcp.launch";
+    host = "localhost";
+}
+cmd "5-rviz" {
+    exec = "rosrun rviz rviz -d $APC_BASE/catkin_ws/src/apc_config/rviz/rvizconfig.rviz";
+    host = "localhost";
+}
+cmd "1-perception-real-nocam" {
+    exec = "roslaunch apc_config robot_perception.launch use_realsense:=false use_realkinect:=false";
+    host = "localhost";
+}
+cmd "0-matlabapc" {
+    exec = "matlab -nodesktop -nodisplay -nosplash -r \"tic; cd([getenv('APC_BASE'), '/software']); addpath_pods; addpath_drake; toc; cd ../software/planning/ik_server/; ikTrajServerSocket;\"";
+    host = "localhost";
+}
+cmd "1-perception-real" {
+    exec = "roslaunch apc_config robot_perception.launch ";
+    host = "localhost";
+}
+cmd "4-vision" {
+    exec = "roslaunch apc_config detection_service.launch";
+    host = "localhost";
+}
+cmd "1-perception-virtual-bagkinect" {
+    exec = "roslaunch apc_config robot_perception.launch use_realkinect:=false have_robot:=false use_realsense:=false use_bagkinect:=true";
+    host = "localhost";
+}
+cmd "0-roscore" {
+    exec = "roscore";
+    host = "localhost";
+}
+cmd "6-interactive-fitting" {
+    exec = " rosrun manual_fit manual_fit_obj_interactive.py";
+    host = "localhost";
+}
+cmd "2-abb-virtual-controller" {
+    exec = "roslaunch apc_config abb.launch use_virtual:=true";
+    host = "localhost";
+}
+cmd "8-runapc" {
+    exec = "time rosrun apc_planning heuristic.py -s -v --jfilename apc.json";
+    host = "localhost";
+}
+cmd "1-perception-virtual" {
+    exec = "roslaunch apc_config robot_perception.launch use_realkinect:=false have_robot:=false use_realsense:=false";
+    host = "localhost";
+}
+cmd "1-perception-norobot" {
+    exec = "roslaunch apc_config robot_perception.launch have_robot:=false";
+    host = "localhost";
+}
+
+script "run_real" {
+    start cmd "0-matlabapc";
+    start cmd "0-roscore";
+    wait ms 1000;
+    start cmd "1-perception-real";
+    start cmd "2-abb";
+    start cmd "3-hand";
+    start cmd "4-vision";
+    start cmd "5-rviz";
+    wait ms 2000;
+    start cmd "6-interactive-fitting";
+}
+
+script "run_real_handvis" {
+    start cmd "0-matlabapc";
+    start cmd "0-roscore";
+    wait ms 1000;
+    start cmd "1-perception-handvision";
+    start cmd "2-abb";
+    start cmd "3-hand";
+    start cmd "4-vision";
+    start cmd "5-rviz";
+    wait ms 2000;
+    start cmd "6-interactive-fitting";
+}
+
+script "run_real_virtual_controller" {
+    start cmd "0-matlabapc";
+    start cmd "0-roscore";
+    wait ms 1000;
+    start cmd "1-perception-real-nocam";
+    start cmd "2-abb-virtual-controller";
+    start cmd "3-hand";
+    start cmd "4-vision";
+    start cmd "5-rviz";
+    wait ms 2000;
+    start cmd "6-interactive-fitting";
+}
+
+script "run_virtual" {
+    start cmd "0-matlabapc";
+    start cmd "0-roscore";
+    wait ms 1000;
+    start cmd "1-perception-virtual";
+    start cmd "5-rviz";
+    wait ms 1000;
+    start cmd "6-interactive-fitting";
+}
+
+script "run_virtual_bagkinect" {
+    start cmd "0-matlabapc";
+    start cmd "0-roscore";
+    wait ms 1000;
+    start cmd "1-perception-virtual-bagkinect";
+    start cmd "4-vision";
+    start cmd "5-rviz";
+    wait ms 1000;
+    start cmd "6-interactive-fitting";
+}

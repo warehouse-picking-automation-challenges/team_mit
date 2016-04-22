@@ -1,0 +1,21 @@
+<package>
+  <description brief="teleop">
+
+     teleop
+
+  </description>
+  <author>Robbie Paolini</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/teleop</url>
+  <depend package="roscpp"/>
+  <depend package="robot_comm"/>
+  <depend package="matVec"/>
+  <depend package="roslib"/>
+    <depend package="rosconsole"/>
+      <depend package="std_srvs"/>
+  <rosdep name="wxwidgets"/>
+
+</package>
+
+

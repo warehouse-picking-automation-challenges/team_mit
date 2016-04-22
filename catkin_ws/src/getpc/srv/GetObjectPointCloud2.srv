@@ -1,0 +1,5 @@
+string obj_id
+int32 bin_num
+---
+sensor_msgs/PointCloud2 pc2
+bool[] foreground_mask

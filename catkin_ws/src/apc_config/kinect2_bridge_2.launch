@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+
+<launch>
+  <arg name="machine" default="mcube-004" />
+  <machine name="$(arg machine)" address="$(arg machine)" user="mcube" timeout="2.0" env-loader="/home/mcube/apc/software/config/apc_environment.sh" />
+  <include file="$(find apc_config)/kinect2_bridge.launch">
+    <arg name="machine" value="$(arg machine)" />
+    <arg name="base_name" value="kinect2_2" />
+    <arg name="fps_limit" value="1" />
+  </include>
+</launch>

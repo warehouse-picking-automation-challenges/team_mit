@@ -1,0 +1,477 @@
+<?xml version="1.0" ?>
+<!-- Peter KT Yu April, 2015-->
+<robot name="irb_1600id" xmlns:xacro="http://ros.org/wiki/xacro">
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://apc_config/models/IRB1600ID/meshes/visual/base_link.stl"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="-0.381131 -0.255114 0"/>
+      <material name="abb_orange">
+        <color rgba="1 0.43 0 1"/>
+      </material>
+    </visual>
+    <inertial>
+      <mass value="6.21503193527"/>
+      <inertia ixx="0.0247271241712" ixy="-0.00130888043627" ixz="-8.0795905152e-05" iyy="0.04723746454" iyz="-8.0325637493e-06" izz="0.049128484834"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="package://apc_config/models/IRB1600ID/meshes/collision/base_link.stl"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="-0.381131 -0.255114 0"/>
+    </collision>
+  </link>
+  <link name="link_1">
+    <visual>
+      <geometry>
+        <mesh filename="package://apc_config/models/IRB1600ID/meshes/visual/link_1.stl"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="-0.264156 -0.1700739 0"/>
+      <material name="abb_orange">
+        <color rgba="1 0.43 0 1"/>
+      </material>
+    </visual>
+    <inertial>
+      <origin
+        xyz="0.0281052735195531 -0.263404021764231 0.0438145912936454"
+        rpy="0 0 0" />
+      <mass value="16.287755696602" />
+      <inertia ixx="0.239763088891016" ixy="-0.0247090810274521" ixz="0.000698689923332581" iyy="0.215279593840589" iyz="-0.0324602456686847" izz="0.21738294278782" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="package://apc_config/models/IRB1600ID/meshes/collision/link_1.stl"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="-0.264156 -0.1700739 0"/>
+    </collision>
+  </link>
+  <link name="link_2">
+    <visual>
+      <geometry>
+        <mesh filename="package://apc_config/models/IRB1600ID/meshes/visual/link_2.stl"/>
+      </geometry>
+      <origin rpy="-1.57079632679 3.14159265359 0" xyz="0.15 -0.4863865 -0.2525"/>
+      <material name="abb_orange">
+        <color rgba="1 0.43 0 1"/>
+      </material>
+    </visual>   
+    <collision>
+      <geometry>
+        <mesh filename="package://apc_config/models/IRB1600ID/meshes/collision/link_2.stl"/>
+      </geometry>
+      <origin rpy="-1.57079632679 3.14159265359 0" xyz="0.15 -0.4863865 -0.2525"/>
+    </collision>
+    <inertial>
+      <origin xyz="0.0602722328661623 -0.550288012476887 -0.0924337165442594" rpy="0 0 0" />
+      <mass value="7.58037424484438" />
+      <inertia ixx="0.155736578403723" ixy="-0.0018292494088038" ixz="-0.000516100043145016" iyy="0.0449374006069967" iyz="0.0179772597993246" izz="0.131499062854069" />
+    </inertial>
+  </link>
+  <link name="link_3">
+    <visual>
+      <geometry>
+        <mesh filename="package://apc_config/models/IRB1600ID/meshes/visual/link_3.stl"/>
+      </geometry>
+      <origin rpy="1.57079632679 0 3.14159265359" xyz="0.1825 -1.18649 -0.118"/>
+      <material name="abb_orange">
+        <color rgba="1 0.43 0 1"/>
+      </material>
+    </visual>    
+    <collision>
+      <geometry>
+        <mesh filename="package://apc_config/models/IRB1600ID/meshes/collision/link_3.stl"/>
+      </geometry>
+      <origin rpy="1.57079632679 0 3.14159265359" xyz="0.1825 -1.18649 -0.118"/>
+    </collision>
+    <inertial>
+      <origin xyz="0.0895840773879386 -0.706321963929838 0.00750781548417993" rpy="0 0 0" />
+      <mass value="8.03072730997701" />
+      <inertia ixx="0.0322819185861096" ixy="0.00189304098071818" ixz="-0.00301812650515099" iyy="0.0862439596837411" iyz="0.000363121583074651" izz="0.0941344479457789"/>
+    </inertial>
+  </link>
+  <link name="link_4">
+    <visual>
+      <geometry>
+        <mesh filename="package://apc_config/models/IRB1600ID/meshes/visual/link_4.stl"/>
+      </geometry>
+      <origin rpy="-1.57079632679 -1.57079632679 0" xyz="-0.07019285 -1.2965 -0.1488"/>
+      <material name="abb_orange">
+        <color rgba="1 0.43 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://apc_config/models/IRB1600ID/meshes/collision/link_4.stl"/>
+      </geometry>
+      <origin rpy="-1.57079632679 -1.57079632679 0" xyz="-0.07019285 -1.2965 -0.1488"/>
+    </collision>
+    <inertial>
+      <origin xyz="0.381567778909365 -0.710566670346653 -0.0012125731023236" rpy="0 0 0" />
+      <mass value="1.7702548022269" />
+      <inertia ixx="0.00345886724545012" ixy="-5.89845314013543E-05" ixz="-0.000204665310780048" iyy="0.00814796317500158" iyz="3.05102860299544E-06"  izz="0.00727417938725734"/>
+    </inertial>
+  </link>
+  <link name="link_5">
+    <visual>
+      <geometry>
+        <mesh filename="package://apc_config/models/IRB1600ID/meshes/visual/link_5.stl"/>
+      </geometry>
+      <origin rpy="-1.57079632679 3.14159265359 0" xyz="0.790263 -1.29649 -0.0525337"/>
+      <material name="abb_orange">
+        <color rgba="1 0.43 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://apc_config/models/IRB1600ID/meshes/collision/link_5.stl"/>
+      </geometry>
+      <origin rpy="-1.57079632679 3.14159265359 0" xyz="0.790263 -1.29649 -0.0525337"/>
+    </collision>
+    <inertial>
+      <origin xyz="0.4486171436144 -0.711838316531129 0.000617034654940496" rpy="0 0 0" />
+      <mass value="0.145550520315438" />
+      <inertia ixx="7.1482542749252E-05" ixy="4.08865519403599E-07" ixz="1.24002244883737E-07" iyy="6.88353185385481E-05" iyz="-1.00702333671187E-08" izz="0.000112132445217078" />
+    </inertial>
+  </link>
+  <link name="link_6">
+    <visual>
+      <geometry>
+        <mesh filename="package://apc_config/models/IRB1600ID/meshes/visual/link_6.stl"/>
+      </geometry>
+      <origin rpy="0 -1.57079632679 0.0" xyz="1.2965 -0.04 -0.99"/>
+      <material name="abb_black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://apc_config/models/IRB1600ID/meshes/collision/link_6.stl"/>
+      </geometry>
+      <origin rpy="0 -1.57079632679 0.0" xyz="1.2965 -0.04 -0.99"/>
+    </collision>
+    <inertial>
+      <origin xyz="0.502059432845099 -0.711774967143511 2.38785136319277E-10" rpy="0 0 0" />
+      <mass value="0.0258654328719498" />
+      <inertia ixx="5.9822143548355E-06" ixy="4.58244484401765E-08" ixz="-3.33091906738059E-13" iyy="6.2921914507958E-06" iyz="6.75626369217644E-13" izz="6.17479327327778E-06" />
+    </inertial>
+  </link>
+  <link name="link_wrist">
+    <visual>
+      <geometry>
+        <mesh filename="package://apc_config/models/wsg_50/meshes/v4/link_wrist.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="3.14159265359 0 0" xyz="-0.0726601332426 0.0423464477062 0.119952730834"/>
+      <material name="abb_blue">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://apc_config/models/IRB1600ID/meshes/collision/link_wrist.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin rpy="3.14159265359 0 0" xyz="-0.0726601332426 0.0423464477062 0.119952730834"/>
+    </collision>
+    <inertial>
+      <origin xyz="0.502059432845099 -0.711774967143511 2.38785136319277E-10" rpy="0 0 0" />
+      <mass value="0.0258654328719498" />
+      <inertia ixx="5.9822143548355E-06" ixy="4.58244484401765E-08" ixz="-3.33091906738059E-13" iyy="6.2921914507958E-06" iyz="6.75626369217644E-13" izz="6.17479327327778E-06" />
+    </inertial>
+  </link>
+  <link name="hand_mount">
+    <inertial>
+      <origin xyz="0.502059432845099 -0.711774967143511 2.38785136319277E-10" rpy="0 0 0" />
+      <mass value="0.0258654328719498" />
+      <inertia ixx="5.9822143548355E-06" ixy="4.58244484401765E-08" ixz="-3.33091906738059E-13" iyy="6.2921914507958E-06" iyz="6.75626369217644E-13" izz="6.17479327327778E-06" />
+    </inertial>
+  </link>
+<!--
+  <joint name="joint0" type="fixed">
+    <parent link="base_link"/>
+    <child link="complete"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+-->
+  <joint name="joint1" type="revolute">
+    <parent link="base_link"/>
+    <child link="link_1"/>
+    <limit effort="300" lower="-3.14159265359" upper="3.14159265359" velocity="4.36"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+  <joint name="joint2" type="revolute">
+    <parent link="link_1"/>
+    <child link="link_2"/>
+    <limit effort="300" lower="-1.57079632679" upper="2.61799387799" velocity="4.36"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy="-1.57079632679 3.14159265359 0" xyz="0.150 0 .4865"/>
+  </joint>
+  <joint name="joint3" type="revolute">
+    <parent link="link_2"/>
+    <child link="link_3"/>
+    <limit effort="300" lower="-4.15388361975" upper="1.37881010908" velocity="4.36"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy="3.14159265359 3.14159265359 3.14159265359" xyz="0 0.700 0"/>
+  </joint>
+  <joint name="joint4" type="revolute">
+    <parent link="link_3"/>
+    <child link="link_4"/>
+    <limit effort="300" lower="-2.70526034059" upper="2.70526034059" velocity="5.58"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy="0 -1.57079632679 0" xyz="0 0.110 0"/> 
+  </joint>
+  <joint name="joint5" type="revolute">
+    <parent link="link_4"/>
+    <child link="link_5"/>
+    <limit effort="300" lower="-1.57079632679" upper="2.35619449019" velocity="5.58"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy="-3.14159265359 1.57079632679 3.14159265359" xyz="0 0 0.64"/>
+  </joint>
+  <joint name="joint6" type="revolute">
+    <parent link="link_5"/>
+    <child link="link_6"/>
+    <limit effort="300" lower="-3.49065850399" upper="3.49065850399" velocity="7.33"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy="1.57079632679 0 -1.57079632679" xyz="-0.2 0 0"/>
+  </joint>
+  <joint name="joint7" type="fixed">
+    <parent link="link_6"/>
+    <child link="link_wrist"/>
+    <limit effort="300" lower="-6.98131700798" upper="6.981317007989" velocity="7.33"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+  <joint name="joint_wristend" type="fixed">
+    <parent link="link_wrist"/>
+    <child link="hand_mount"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy="0 0 0" xyz="0 0 0.12"/>
+  </joint>
+  
+  <joint name="joint_hand" type="fixed">
+    <parent link="hand_mount"/>
+    <child link="wsg50_base_link"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+  
+
+<!--
+  <joint name="joint_hand2" type="fixed">
+    <parent link="hand_mount"/>
+    <child link="hand_all"/>
+    <axis xyz="0 0 1"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+
+  
+
+ <link name="hand_all">
+      <inertial>
+          <mass value="1.2" />
+          <origin xyz="0 0 0" />
+          <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+      </inertial>
+
+      <visual>
+          <origin xyz="0.073 -0.025 0" rpy="1.57079632679 1.57079632679 3.14159265359" />
+          <geometry>
+             <mesh filename="package://apc_config/models/wsg_50/meshes/all_hand.stl" scale="0.001 0.001 0.001"/>
+          </geometry>
+          <material name="grey">
+             <color rgba="0.8 0.5 0.5 1"/>
+          </material>
+      </visual>
+ </link>
+-->
+
+
+
+ <!-- BASE LINK -->
+ <link name="wsg50_base_link">
+      <inertial>
+          <mass value="1.2" />
+          <origin xyz="0 0 0" />
+          <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+      </inertial>
+
+      <visual>
+          <origin xyz="0.0 0 0" rpy="0 0 0" />
+          <geometry>
+             <mesh filename="package://apc_config/models/wsg_50/meshes/WSG50_110.stl" scale="1 1 1"/>
+             <!--box size="0.146 0.05 0.0735"/-->
+          </geometry>
+          <material name="grey">
+             <color rgba="0.5 0.5 0.5 1"/>
+          </material>
+      </visual>
+
+      <collision>
+          <origin xyz="0.0 0 0" rpy="0 0 0" />
+          <geometry>
+             <!--box size="0.146 0.05 0.0735"/-->
+             <mesh filename="package://apc_config/models/wsg_50/meshes/WSG50_110.stl" scale="1 1 1"/>
+          </geometry>
+     </collision>
+ </link>
+
+
+  <!-- GRIPPER LEFT -->
+
+  <joint name="wsg_50_gripper_base_joint_gripper_left" type="prismatic">
+     <limit lower="-0.055" upper="-0.0027" effort="1.0" velocity="1.0"/>
+     <origin xyz="0 0 0" rpy="0 0 0" />      <!--origin xyz="-0.0067 0 0.049" rpy="0 0 0" /-->
+     <parent link="wsg50_base_link"/>
+     <child link="gripper_left" />
+     <axis xyz="1 0 0"/>
+     <limit effort="100" velocity="100"/>
+  </joint>
+
+  <link name="gripper_left">
+      <inertial>
+          <mass value="0.1" />
+          <origin xyz="0 0 0" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+               iyy="1.0" iyz="0.0" 
+               izz="1.0" />
+      </inertial>
+
+      <visual>
+          <origin xyz="0.0 0 0" rpy="0 0 0" />
+          <geometry>
+             <mesh filename="package://apc_config/models/wsg_50/meshes/GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
+             <!--box size="0.0175 0.03 0.024"/-->
+          </geometry>
+          <material name="black">
+        <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+
+      <collision>
+          <origin xyz="0 0 0" rpy="0 0 0" />
+          <geometry>
+             <!--box size="0.0175 0.03 0.024"/-->
+             <mesh filename="package://apc_config/models/wsg_50/meshes/GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
+         </geometry>
+     </collision>
+  </link>
+
+
+
+  <!-- LEFT FINGER -->
+
+  <joint name="guide_joint_finger_left" type="fixed">
+     <origin xyz="0 0 0.023" rpy="0 0 0" />
+     <parent link="gripper_left"/>
+     <child link="finger_left" />
+     <axis xyz="1 0 0"/>
+     <limit effort="100" velocity="100"/>
+  </joint>
+
+  <link name="finger_left">
+      <inertial>
+          <mass value="0.1" />
+          <origin xyz="0 0 0" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+               iyy="1.0" iyz="0.0" 
+               izz="1.0" />
+      </inertial>
+
+      <visual>
+          <origin xyz="0.0658272579312 -0.0897141247988 0.256312400103" rpy="-1.57079632679 1.57079632679 0.0" />
+          <geometry>
+             <mesh filename="package://apc_config/models/wsg_50/meshes/SpatulaFingersTop.stl" scale="0.001 0.001 0.001"/>
+          </geometry>
+          <material name="black">
+              <color rgba="0.5 0.5 0.5 1"/>
+          </material>
+      </visual>
+
+      <collision>
+          <origin xyz="0.0658272579312 -0.0897141247988 0.256312400103" rpy="-1.57079632679 1.57079632679 0.0" />
+          <geometry>
+             <mesh filename="package://apc_config/models/wsg_50/meshes/SpatulaFingersTop.stl" scale="0.001 0.001 0.001"/>
+         </geometry>
+     </collision>
+  </link>
+
+
+  <!-- GRIPPER RIGHT -->
+
+  <joint name="wsg_50_gripper_base_joint_gripper_right" type="prismatic">
+     <limit lower="0.0027" upper="0.055" effort="1.0" velocity="1.0"/>
+     <origin xyz="0 0 0" rpy="0 0 3.14159" />
+     <parent link="wsg50_base_link"/>
+     <child link="gripper_right" />
+     <axis xyz="-1 0 0"/>
+     <limit effort="100" velocity="100"/>
+  </joint>
+
+    <link name="gripper_right">
+      <inertial>
+          <mass value="0.1" />
+          <origin xyz="0 0 0" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+               iyy="1.0" iyz="0.0" 
+               izz="1.0" />
+      </inertial>
+
+      <visual>
+          <origin xyz="0.0 0 0" rpy="0 0 0" />
+          <geometry>
+             <mesh filename="package://apc_config/models/wsg_50/meshes/GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
+             <!--box size="0.0175 0.03 0.024"/-->
+          </geometry>
+          <material name="black">
+              <color rgba="0.5 0.5 0.5 1"/>
+          </material>
+      </visual>
+
+      <collision>
+          <origin xyz="0 0 0" rpy="0 0 0" />
+          <geometry>
+             <!--box size="0.0175 0.03 0.024"/-->
+             <mesh filename="package://apc_config/models/wsg_50/meshes/GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
+         </geometry>
+     </collision>
+  </link>
+
+  <!-- RIGHT FINGER -->
+
+  <joint name="guide_joint_finger_right" type="fixed">
+     <origin xyz="0 0 0.023" rpy="0 0 0" />
+     <parent link="gripper_right"/>
+     <child link="finger_right" />
+     <axis xyz="1 0 0"/>
+     <limit effort="100" velocity="100"/>
+  </joint>
+
+  <link name="finger_right">
+      <inertial>
+          <mass value="0.1" />
+          <origin xyz="0 0 0" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+               iyy="1.0" iyz="0.0" 
+               izz="1.0" />
+      </inertial>
+
+      <visual>
+          <origin xyz="-0.0974799394608 -0.131322726607 0.111145801842" rpy="-1.57079632679 -1.57079632679 0" />
+          <geometry>
+             <mesh filename="package://apc_config/models/wsg_50/meshes/SpatulaFingersBottom.stl" scale="0.001 0.001 0.001"/>
+          </geometry>
+          <material name="black">
+              <color rgba="0.5 0.5 0.5 1"/>
+          </material>
+      </visual>
+
+      <collision>
+          <origin xyz="-0.0974799394608 -0.131322726607 0.111145801842" rpy="-1.57079632679 -1.57079632679 0" />
+          <geometry>
+             <mesh filename="package://apc_config/models/wsg_50/meshes/SpatulaFingersBottom.stl" scale="0.001 0.001 0.001"/>
+         </geometry>
+     </collision>
+  </link>
+</robot>
+

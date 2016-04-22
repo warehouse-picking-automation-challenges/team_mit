@@ -1,0 +1,9 @@
+zeros:
+    joint1: 0.0
+    joint2: -0.59
+    joint3: 0.42
+    joint4: 0.1
+    joint5: 0
+    joint6: -0.314
+    base_joint_gripper_left: -0.055
+    base_joint_gripper_right: 0.055

@@ -1,0 +1,86 @@
+solid ExpoEraser
+   facet normal -1.000000e+000 0.000000e+000 0.000000e+000
+      outer loop
+         vertex -0.065000 0.027500 0.017500
+         vertex -0.065000 0.027500 -0.017500
+         vertex -0.065000 -0.027500 0.017500
+      endloop
+   endfacet
+   facet normal -1.000000e+000 0.000000e+000 0.000000e+000
+      outer loop
+         vertex -0.065000 -0.027500 0.017500
+         vertex -0.065000 0.027500 -0.017500
+         vertex -0.065000 -0.027500 -0.017500
+      endloop
+   endfacet
+   facet normal 0.000000e+000 0.000000e+000 1.000000e+000
+      outer loop
+         vertex 0.065000 0.027500 0.017500
+         vertex -0.065000 0.027500 0.017500
+         vertex 0.065000 -0.027500 0.017500
+      endloop
+   endfacet
+   facet normal 0.000000e+000 0.000000e+000 1.000000e+000
+      outer loop
+         vertex 0.065000 -0.027500 0.017500
+         vertex -0.065000 0.027500 0.017500
+         vertex -0.065000 -0.027500 0.017500
+      endloop
+   endfacet
+   facet normal 1.000000e+000 0.000000e+000 0.000000e+000
+      outer loop
+         vertex 0.065000 0.027500 -0.017500
+         vertex 0.065000 0.027500 0.017500
+         vertex 0.065000 -0.027500 -0.017500
+      endloop
+   endfacet
+   facet normal 1.000000e+000 0.000000e+000 0.000000e+000
+      outer loop
+         vertex 0.065000 -0.027500 -0.017500
+         vertex 0.065000 0.027500 0.017500
+         vertex 0.065000 -0.027500 0.017500
+      endloop
+   endfacet
+   facet normal 0.000000e+000 0.000000e+000 -1.000000e+000
+      outer loop
+         vertex -0.065000 0.027500 -0.017500
+         vertex 0.065000 0.027500 -0.017500
+         vertex -0.065000 -0.027500 -0.017500
+      endloop
+   endfacet
+   facet normal 0.000000e+000 0.000000e+000 -1.000000e+000
+      outer loop
+         vertex -0.065000 -0.027500 -0.017500
+         vertex 0.065000 0.027500 -0.017500
+         vertex 0.065000 -0.027500 -0.017500
+      endloop
+   endfacet
+   facet normal 0.000000e+000 1.000000e+000 0.000000e+000
+      outer loop
+         vertex 0.065000 0.027500 0.017500
+         vertex 0.065000 0.027500 -0.017500
+         vertex -0.065000 0.027500 0.017500
+      endloop
+   endfacet
+   facet normal 0.000000e+000 1.000000e+000 0.000000e+000
+      outer loop
+         vertex -0.065000 0.027500 0.017500
+         vertex 0.065000 0.027500 -0.017500
+         vertex -0.065000 0.027500 -0.017500
+      endloop
+   endfacet
+   facet normal 0.000000e+000 -1.000000e+000 0.000000e+000
+      outer loop
+         vertex 0.065000 -0.027500 -0.017500
+         vertex 0.065000 -0.027500 0.017500
+         vertex -0.065000 -0.027500 -0.017500
+      endloop
+   endfacet
+   facet normal 0.000000e+000 -1.000000e+000 0.000000e+000
+      outer loop
+         vertex -0.065000 -0.027500 -0.017500
+         vertex 0.065000 -0.027500 0.017500
+         vertex -0.065000 -0.027500 0.017500
+      endloop
+   endfacet
+endsolid

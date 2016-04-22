@@ -1,0 +1,118 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="gui" default="true" />
+  <arg name="use_realkinect" default="true" />
+  <arg name="use_realsense" default="true" />
+  <!--<arg name="kinect_num" default="1" />-->
+  <arg name="use_bagkinect" default="false" />
+  <arg name="have_robot" default="true" />
+  <arg name="do_fitting" default="false" />
+  <arg name="kinect2_machine" default="mcube-004" />
+  <arg name="realsense_machine" default="mcube-005" />
+<!--
+   remember to modify machine in kinect2_bridge_2.launch
+-->
+  
+  <!--<param name="use_sim_time" value="$(arg use_bagkinect)" />   enforce the rosnodes use the time recorded in rosbag-->
+
+<!--
+  <arg name="bagfilename" default="2015-04-09-18-26-49.bag" />
+-->
+  <arg name="bagfilename" default="vision_dataset/Bin0_Kinect/paper_mate_12_count_mirado_black_warrior/flat/2015-05-17-16-41-45.bag" />
+  
+  
+  <arg name="irb_1600id" default="true" />
+  <arg name="irb_120" default="false" />
+  
+  <param name="use_gui" value="$(arg gui)"/>
+  <param name="robot_description" textfile="$(find apc_config)/models/IRB1600ID/irb_1600id.urdf" />
+    
+  
+  <rosparam unless="$(arg have_robot)" command="load" file="$(find apc_config)/robot_perception_norobot_joint.yaml" />
+  <rosparam command="load" file="$(find apc_config)/shelf_pose.yaml" />
+
+  <machine if="$(arg use_realsense)" name="$(arg realsense_machine)" address="$(arg realsense_machine)" user="mcube" timeout="2.0" env-loader="/home/mcube/apc/software/config/apc_environment.sh" />
+  <machine if="$(arg use_realkinect)" name="$(arg kinect2_machine)" address="$(arg kinect2_machine)" user="mcube" timeout="2.0" env-loader="/home/mcube/apc/software/config/apc_environment.sh" />
+
+  <node if="$(arg irb_1600id)" pkg="tf" type="static_transform_publisher" name="baselink_broadcaster" args="0 0 0 0 0 0 map base_link 50" />
+  <node if="$(arg irb_120)" pkg="tf" type="static_transform_publisher" name="baselink_broadcaster" args="0 0 0 0 0 1.57 map base_link 50" />
+
+  <node unless="$(arg have_robot)" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
+    <rosparam unless="$(arg have_robot)" command="load" file="$(find apc_config)/source_list_param.yaml" />
+  </node>
+  
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" />
+
+  <!--<node pkg="rviz" type="rviz" name="rviz" respawn="false" args="-d $(find apc_config)/rvizconfig.rviz"/>-->
+  <node pkg="tf" type="static_transform_publisher" name="worldlink_broadcaster" args="0 0 0 0 0 0 map /world 100" />
+  <node if="$(arg do_fitting)" pkg="manual_fit" type="manual_fit_obj_interactive.py" name="manual_fit_obj_interactive" output="screen" />
+  
+  <include if="$(arg use_realkinect)" file="$(find getpc)/src/getpc_cpp.launch">
+    <arg name="input_topic" value="/kinect2_1/depth_highres/points"/>
+    <arg name="name" value="1"/>
+  </include>
+  <include if="$(arg use_realkinect)" file="$(find getpc)/src/getpc_cpp.launch">
+    <arg name="machine" value="$(arg kinect2_machine)" />
+    <arg name="input_topic" value="/kinect2_2/depth_highres/points"/>
+    <arg name="name" value="2"/>
+  </include>
+  <include if="$(arg use_realsense)" file="$(find getpc)/src/getpc_cpp.launch">
+    <arg name="machine" value="$(arg realsense_machine)" />
+    <arg name="input_topic" value="/realsense/depth_registered/points"/>
+    <arg name="name" value="3"/>
+  </include>
+
+  <node if="$(arg use_realkinect)" pkg="apc_perception" type="kinect_control.py" name="$(anon kinect_control)" output="screen" />
+  
+  <include if="$(arg use_realsense)" file="$(find apc_config)/launch/realsense_camera.launch">
+    <arg name="machine" value="$(arg realsense_machine)" />
+    <arg name="camera" value="realsense" />
+  </include>
+  
+  <group if="$(arg use_bagkinect)" >
+      <arg name="base_name" value="kinect2_1" />
+      <node pkg="rosbag" type="play" name="$(anon player)" output="screen" 
+         args="-l $(env APCDATA_BASE)/bagfiles/$(arg bagfilename) 
+         /$(arg base_name)/depth_lowres/points:=/bag/$(arg base_name)/depth_lowres/points 
+         /$(arg base_name)/rgb_lowres/image:=/bag/$(arg base_name)/rgb_lowres/image 
+         /$(arg base_name)/depth_highres/points:=/bag/$(arg base_name)/depth_highres/points 
+         /$(arg base_name)/rgb_highres/image:=/bag/$(arg base_name)/rgb_highres/image 
+         --topics 
+         /$(arg base_name)/depth_lowres/points 
+         /$(arg base_name)/rgb_lowres/image 
+         /$(arg base_name)/depth_highres/points 
+         /$(arg base_name)/rgb_highres/image" 
+         />
+      <node pkg="apc_perception" type="republish.py" name="$(anon republisher1)" output="screen" 
+         args="/bag/$(arg base_name)/depth_lowres/points /$(arg base_name)/depth_lowres/points sensor_msgs.msg.PointCloud2"/>
+      <node pkg="apc_perception" type="republish.py" name="$(anon republisher2)" output="screen" 
+         args="/bag/$(arg base_name)/rgb_lowres/image $(arg base_name)/rgb_lowres/image sensor_msgs.msg.Image"/>
+      <node pkg="apc_perception" type="republish.py" name="$(anon republisher3)" output="screen" 
+         args="/bag/$(arg base_name)/depth_highres/points /$(arg base_name)/depth_highres/points sensor_msgs.msg.PointCloud2"/>
+      <node pkg="apc_perception" type="republish.py" name="$(anon republisher4)" output="screen" 
+         args="/bag/$(arg base_name)/rgb_highres/image $(arg base_name)/rgb_highres/image sensor_msgs.msg.Image"/>
+  </group>
+  <group if="$(arg use_bagkinect)" >
+      <arg name="base_name" value="kinect2_2" />
+      <node pkg="rosbag" type="play" name="$(anon player)" output="screen" 
+         args="-l $(env APCDATA_BASE)/bagfiles/$(arg bagfilename) 
+         /$(arg base_name)/depth_lowres/points:=/bag/$(arg base_name)/depth_lowres/points 
+         /$(arg base_name)/rgb_lowres/image:=/bag/$(arg base_name)/rgb_lowres/image 
+         /$(arg base_name)/depth_highres/points:=/bag/$(arg base_name)/depth_highres/points 
+         /$(arg base_name)/rgb_highres/image:=/bag/$(arg base_name)/rgb_highres/image 
+         --topics 
+         /$(arg base_name)/depth_lowres/points 
+         /$(arg base_name)/rgb_lowres/image 
+         /$(arg base_name)/depth_highres/points 
+         /$(arg base_name)/rgb_highres/image" 
+         />
+      <node pkg="apc_perception" type="republish.py" name="$(anon republisher1)" output="screen" 
+         args="/bag/$(arg base_name)/depth_lowres/points /$(arg base_name)/depth_lowres/points sensor_msgs.msg.PointCloud2"/>
+      <node pkg="apc_perception" type="republish.py" name="$(anon republisher2)" output="screen" 
+         args="/bag/$(arg base_name)/rgb_lowres/image $(arg base_name)/rgb_lowres/image sensor_msgs.msg.Image"/>
+      <node pkg="apc_perception" type="republish.py" name="$(anon republisher3)" output="screen" 
+         args="/bag/$(arg base_name)/depth_highres/points /$(arg base_name)/depth_highres/points sensor_msgs.msg.PointCloud2"/>
+      <node pkg="apc_perception" type="republish.py" name="$(anon republisher4)" output="screen" 
+         args="/bag/$(arg base_name)/rgb_highres/image $(arg base_name)/rgb_highres/image sensor_msgs.msg.Image"/>
+  </group>
+</launch>

@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+
+<launch>
+  <include file="$(find apc_config)/kinect2_bridge.launch">
+    <arg name="base_name" value="kinect2_1" />
+    <arg name="fps_limit" value="1" />
+  </include>
+</launch>

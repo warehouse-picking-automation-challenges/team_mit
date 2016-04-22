@@ -1,0 +1,53 @@
+<robot
+  name="shelf.SLDASM">
+
+  <link
+    name="base_link">
+      <origin
+        xyz="0 0 0 "
+        rpy="1.5707 0 0" />
+  </link>
+  <link
+    name="pod_link">
+    <inertial>
+      <origin
+        xyz="0 0 0 "
+        rpy="0 0 0" />
+      <mass
+        value="20" />
+      <inertia
+        ixx="0.104502176006253"
+        ixy="0.00734284655670482"
+        ixz="1.00520827530156E-05"
+        iyy="0.246486764065977"
+        iyz="0.000843006810157312"
+        izz="0.16727784258504" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="meshes/pod_lowres.stl" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="meshes/pod_lowres.stl" />
+      </geometry>
+    </collision>
+</link>
+
+
+  <joint name="podjoint" type="prismatic">
+    <parent link="base_link"/>
+    <child link="pod_link"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <limit />
+  </joint>
+</robot>

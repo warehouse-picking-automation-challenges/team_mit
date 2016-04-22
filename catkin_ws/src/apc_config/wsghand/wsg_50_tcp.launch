@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node name="wsg_50_driver"  pkg="wsg_50_driver" type="wsg_50_ip" output="screen" respawn="true" >
+    <!--<remap from="joint_states" to="robot1_RosJointState" />-->
+	<param name="ip" type="string" value="192.168.37.2"/>
+	<param name="port" type="int" value="1000"/>
+	<param name="rate" type="double" value="5.0"/>
+  </node>
+
+</launch>
+

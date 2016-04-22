@@ -1,0 +1,5 @@
+<launch>
+<param name="_fps_limit" value="2" type="int" />
+<node name="kinect2_bridge" pkg="kinect2_bridge" type="kinect2_bridge"/>
+<!--<node name="kinect2_calibration_color" pkg="kinect2_calibration" type="kinect2_calibration" args="chess5x7x0.03 record color"/>-->
+</launch>

@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<robot name="wsg_50" xmlns:xacro="http://ros.org/wiki/xacro">
+
+ <!-- BASE LINK -->
+ <link name="base_link">
+      <inertial>
+          <mass value="1.2" />
+          <origin xyz="0 0 0" />
+          <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+      </inertial>
+
+      <visual>
+          <origin xyz="0.0 0 0" rpy="0 0 0" />
+          <geometry>
+             <mesh filename="package://apc_config/models/wsg_50/meshes/WSG50_110.stl" scale="1 1 1"/>
+             <!--box size="0.146 0.05 0.0735"/-->
+          </geometry>
+          <material name="grey">
+             <color rgba="0.5 0.5 0.5 1"/>
+          </material>
+      </visual>
+
+      <collision>
+          <origin xyz="0.0 0 0" rpy="0 0 0" />
+          <geometry>
+             <!--box size="0.146 0.05 0.0735"/-->
+             <mesh filename="package://apc_config/models/wsg_50/meshes/WSG50_110.stl" scale="1 1 1"/>
+          </geometry>
+     </collision>
+ </link>
+
+
+  <!-- GRIPPER LEFT -->
+
+  <joint name="base_joint_gripper_left" type="prismatic">
+     <limit lower="-0.055" upper="-0.0027" effort="1.0" velocity="1.0"/>
+     <origin xyz="0 0 0" rpy="0 0 0" />      <!--origin xyz="-0.0067 0 0.049" rpy="0 0 0" /-->
+     <parent link="base_link"/>
+     <child link="gripper_left" />
+     <axis xyz="1 0 0"/>
+     <limit effort="100" velocity="100"/>
+  </joint>
+
+  <link name="gripper_left">
+      <inertial>
+          <mass value="0.1" />
+          <origin xyz="0 0 0" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+               iyy="1.0" iyz="0.0" 
+               izz="1.0" />
+      </inertial>
+
+      <visual>
+          <origin xyz="0.0 0 0" rpy="0 0 0" />
+          <geometry>
+             <mesh filename="package://apc_config/models/wsg_50/meshes/GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
+             <!--box size="0.0175 0.03 0.024"/-->
+          </geometry>
+          <material name="black">
+        <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+
+      <collision>
+          <origin xyz="0 0 0" rpy="0 0 0" />
+          <geometry>
+             <!--box size="0.0175 0.03 0.024"/-->
+             <mesh filename="package://apc_config/models/wsg_50/meshes/GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
+         </geometry>
+     </collision>
+  </link>
+
+
+
+  <!-- LEFT FINGER -->
+
+  <joint name="guide_joint_finger_left" type="fixed">
+     <origin xyz="0 0 0.023" rpy="0 0 0" />
+     <parent link="gripper_left"/>
+     <child link="finger_left" />
+     <axis xyz="1 0 0"/>
+     <limit effort="100" velocity="100"/>
+  </joint>
+
+  <link name="finger_left">
+      <inertial>
+          <mass value="0.1" />
+          <origin xyz="0 0 0" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+               iyy="1.0" iyz="0.0" 
+               izz="1.0" />
+      </inertial>
+
+      <visual>
+          <origin xyz="0.06585 -0.0905 0.2365" rpy="-1.57079632679 1.57079632679 0.0" />
+          <geometry>
+             <mesh filename="package://apc_config/models/wsg_50/meshes/SpatulaFingersTop.stl" scale="0.001 0.001 0.001"/>
+          </geometry>
+          <material name="black">
+              <color rgba="0.5 0.5 0.5 1"/>
+          </material>
+      </visual>
+
+      <collision>
+          <origin xyz="0.06585 -0.0905 0.2365" rpy="-1.57079632679 1.57079632679 0.0" />
+          <geometry>
+             <mesh filename="package://apc_config/models/wsg_50/meshes/SpatulaFingersTop.stl" scale="0.001 0.001 0.001"/>
+         </geometry>
+     </collision>
+  </link>
+
+
+  <!-- GRIPPER RIGHT -->
+
+  <joint name="base_joint_gripper_right" type="prismatic">
+     <limit lower="0.0027" upper="0.055" effort="1.0" velocity="1.0"/>
+     <origin xyz="0 0 0" rpy="0 0 3.14159" />
+     <parent link="base_link"/>
+     <child link="gripper_right" />
+     <axis xyz="-1 0 0"/>
+     <limit effort="100" velocity="100"/>
+  </joint>
+
+    <link name="gripper_right">
+      <inertial>
+          <mass value="0.1" />
+          <origin xyz="0 0 0" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+               iyy="1.0" iyz="0.0" 
+               izz="1.0" />
+      </inertial>
+
+      <visual>
+          <origin xyz="0.0 0 0" rpy="0 0 0" />
+          <geometry>
+             <mesh filename="package://apc_config/models/wsg_50/meshes/GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
+             <!--box size="0.0175 0.03 0.024"/-->
+          </geometry>
+          <material name="black">
+              <color rgba="0.5 0.5 0.5 1"/>
+          </material>
+      </visual>
+
+      <collision>
+          <origin xyz="0 0 0" rpy="0 0 0" />
+          <geometry>
+             <!--box size="0.0175 0.03 0.024"/-->
+             <mesh filename="package://apc_config/models/wsg_50/meshes/GUIDE_WSG50_110.stl" scale="0.001 0.001 0.001"/>
+         </geometry>
+     </collision>
+  </link>
+
+  <!-- RIGHT FINGER -->
+
+  <joint name="guide_joint_finger_right" type="fixed">
+     <origin xyz="0 0 0.023" rpy="0 0 0" />
+     <parent link="gripper_right"/>
+     <child link="finger_right" />
+     <axis xyz="1 0 0"/>
+     <limit effort="100" velocity="100"/>
+  </joint>
+
+  <link name="finger_right">
+      <inertial>
+          <mass value="0.1" />
+          <origin xyz="0 0 0" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+               iyy="1.0" iyz="0.0" 
+               izz="1.0" />
+      </inertial>
+
+      <visual>
+          <origin xyz="-0.09795 -0.131305709481 0.094116" rpy="-1.57079632679 -1.57079632679 0" />
+          <geometry>
+             <mesh filename="package://apc_config/models/wsg_50/meshes/SpatulaFingersBottom.stl" scale="0.001 0.001 0.001"/>
+          </geometry>
+          <material name="black">
+              <color rgba="0.5 0.5 0.5 1"/>
+          </material>
+      </visual>
+
+      <collision>
+          <origin xyz="-0.09795 -0.131305709481 0.094116" rpy="-1.57079632679 -1.57079632679 0" />
+          <geometry>
+             <mesh filename="package://apc_config/models/wsg_50/meshes/SpatulaFingersBottom.stl" scale="0.001 0.001 0.001"/>
+         </geometry>
+     </collision>
+  </link>
+
+
+
+
+</robot>
+
+

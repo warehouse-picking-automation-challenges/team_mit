@@ -1,0 +1,28 @@
+<!--roslaunch apc_config find_object.launch name:=elmers_washable_no_run_school_glue -->
+
+<launch>
+
+  <arg name="name" />
+  <arg name="max_dist" default="1.0" />
+  <arg name="min_table_size" default=".05" />
+  <arg name="tabletop_zmin" default=".015" />
+
+  <node pkg="tf" type="static_transform_publisher" name="kinect2_rgb_optical_frame"
+    args="0 0 0 0 -1.57 0  /world /kinect2_rgb_optical_frame 100" />
+    
+  <node pkg="tf" type="static_transform_publisher" name="camera_rgb_optical_frame"
+    args="0 0 0 0 -1.57 0  /world /camera_rgb_optical_frame 100" />
+
+  <node pkg="capsen_vision" name="find_object" type="find_object" respawn="true" output="screen">
+    <remap from="cloud" to="/kinect2_1/depth_highres/points"/>
+    <param name="name" value="$(arg name)" />
+    <param name="max_dist" value="$(arg max_dist)" />
+    <param name="min_table_size" value="$(arg min_table_size)" />
+    <param name="tabletop_zmin" value="$(arg tabletop_zmin)" />
+  </node>
+
+
+</launch>
+
+
+

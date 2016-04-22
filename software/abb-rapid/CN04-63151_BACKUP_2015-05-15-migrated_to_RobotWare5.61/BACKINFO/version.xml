@@ -1,0 +1,15 @@
+<Version>
+	<Major>5</Major>
+	<Minor>61</Minor>
+	<Build>1001</Build>
+	<Revision>01</Revision>
+	<SubRevision>00</SubRevision>
+	<BuildTag>
+	</BuildTag>
+	<RobAPICompatibilityRevision>0</RobAPICompatibilityRevision>
+	<Title>RobotWare</Title>
+	<Type>RobotWare</Type>
+	<Description>Controller Software</Description>
+	<Date>2014-05-20</Date>
+	<MCTimeStamp>#14:38:20/maj 20 2014#</MCTimeStamp>
+</Version>

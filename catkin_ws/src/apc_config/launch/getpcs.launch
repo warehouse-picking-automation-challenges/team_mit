@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<launch>
+  <include file="$(find getpc)/src/getpc_cpp.launch">
+    <arg name="input_topic" value="/kinect2_1/depth_highres/points"/>
+    <arg name="name" value="1"/>
+  </include>
+  <include file="$(find getpc)/src/getpc_cpp.launch">
+    <arg name="input_topic" value="/kinect2_2/depth_highres/points"/>
+    <arg name="name" value="2"/>
+  </include>
+  <include file="$(find getpc)/src/getpc_cpp.launch">
+    <arg name="input_topic" value="/realsense/depth_registered/points"/>
+    <arg name="name" value="3"/>
+  </include>
+</launch>
