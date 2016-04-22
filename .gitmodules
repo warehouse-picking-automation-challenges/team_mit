@@ -1,0 +1,33 @@
+[submodule "catkin_ws/src/iai_kinect2"]
+	path = catkin_ws/src/iai_kinect2
+	url = git@github.mit.edu:mCube/iai_kinect2.git
+[submodule "software/externals/bullet-pod"]
+	path = software/externals/bullet-pod
+	url = https://github.com/RobotLocomotion/bullet-pod.git
+[submodule "software/externals/libbot"]
+	path = software/externals/libbot
+	url = https://github.com/RobotLocomotion/libbot.git
+[submodule "software/externals/eigen-pod"]
+	path = software/externals/eigen-pod
+	url = https://github.com/RobotLocomotion/eigen-pod.git
+[submodule "software/externals/lcm-pod"]
+	path = software/externals/lcm-pod
+	url = https://github.com/RobotLocomotion/lcm-pod.git
+[submodule "ros_ws/abb-ros"]
+	path = ros_ws/abb-ros
+	url = git@github.mit.edu:mCube/abb-ros.git
+[submodule "software/externals/drake"]
+	path = software/externals/drake
+	url = https://github.com/RobotLocomotion/drake.git
+[submodule "ros_ws/hand/wsg50-ros-pkg"]
+	path = catkin_ws/src/wsg50-ros-pkg
+	url = git@github.mit.edu:mCube/wsg50-ros-pkg.git
+[submodule "catkin_ws/src/realsense_camera"]
+	path = catkin_ws/src/realsense_camera
+	url = git@github.mit.edu:mCube/realsense_camera.git 
+[submodule "catkin_ws/src/apriltags_ros"]
+	path = catkin_ws/src/apriltags_ros
+	url = git@github.mit.edu:mCube/apriltags_ros.git
+[submodule "software/externals/libfreenect2"]
+	path = software/externals/libfreenect2
+	url = https://github.com/wiedemeyer/libfreenect2.git
