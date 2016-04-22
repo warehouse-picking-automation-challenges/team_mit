@@ -6,6 +6,7 @@ This is the system used by Team MIT in the 2015 APC. We hope that by releasing t
 the community can benefit from having an working infrastructure, and
 move forward to focus on the key challenging problem such as object classification, 
 pose estimation, and novel picking strategies etc. Although we try to share as much as we can, the whole system contains some non-free software so you may need to work around it by yourself. 
+Now we are working toward APC 2016, so we won't have extra effort to maintain this repo.
 
 Shelving System
 ---------------
@@ -142,7 +143,7 @@ Install ABB node to control the robot (Skip it if you don't have the robot)
 ```
 ./install.sh ABB
 ```
-Install CUDA7 (for Capsen and MOPED) (Skip it if you don't nVidia GPU)
+Install CUDA7 (for Capsen) (Skip it if you don't have nVidia GPU)
 ```
 ./install.sh CUDA7
 ```
